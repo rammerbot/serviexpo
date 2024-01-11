@@ -18,3 +18,5 @@ DATABASES = {
         'PORT': '5432',       
     }
 }
+
+CSRF_COOKIE_SECURE = True

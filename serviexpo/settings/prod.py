@@ -3,7 +3,7 @@ from .base import *
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://serviexpo.rammerbot.com']
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
@@ -11,9 +11,9 @@ ALLOWED_HOSTS = ['*']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'nombre_de_tu_base_de_datos',
-        'USER': 'tu_usuario',
-        'PASSWORD': 'tu_contraseña',
+        'NAME': 'serviexpo',
+        'USER': 'serviexpo_user',
+        'PASSWORD': 'ServiExpo_2024',
         'HOST': 'localhost',  
         'PORT': '5432',       
     }

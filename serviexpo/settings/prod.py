@@ -3,8 +3,8 @@ from .base import *
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['.rammerbot.com']
+CSRF_TRUSTED_ORIGINS=['https://serviexpo.rammerbot.com']
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases

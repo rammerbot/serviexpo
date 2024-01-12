@@ -18,8 +18,12 @@
                                 <div class="card-body p-0">
                                     <div class="d-flex align-items-center">
                                         <div class="p-5">
-                                            <h2 class="fw-bolder">{{project.project}}</h2>
-                                            <p>{{project.resume}}</p>
+                                            <h2 class="fw-bolder"><a class="btn btn-outline-dark btn-lg px-5 py-3 fs-6 fw-bolder" href={{project.url}} target='_blank'>{{project.project}}</a></h2>
+                                            <div class="summary-container">
+                                                <p class="summary">{{ project.resume|truncatechars:100 }}</p>
+                                                <p class="full-text" style="display: none;">{{ project.resume }}</p>
+                                                <button class="toggle-button" onclick="toggleText(this)">Ver más</button>
+                                            </div>
                                         </div>
                                         <img class="img-fluid" src="{{project.image.url}}" alt="..."  style="width:300px; height:200px"/>
                                     </div>
@@ -40,4 +44,22 @@
             </div>
         </section>
     </main>
+
+    <script>
+        function toggleText(button) {
+            const container = button.parentElement;
+            const summary = container.querySelector('.summary');
+            const fullText = container.querySelector('.full-text');
+    
+            if (summary.style.display === '' || summary.style.display === 'block') {
+                summary.style.display = 'none';
+                fullText.style.display = 'block';
+                button.textContent = 'Ver menos';
+            } else {
+                summary.style.display = 'block';
+                fullText.style.display = 'none';
+                button.textContent = 'Ver más';
+            }
+        }
+    </script>
 {% endblock content %}

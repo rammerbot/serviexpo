@@ -9,7 +9,7 @@ class Experience(models.Model):
     position = models.CharField('Cargo', max_length=50, blank=True)
     company = models.CharField('Compañia', max_length=100)
     description = models.TextField('Description')
-    image = models.ImageField('Imagen', upload_to='experiencia/')
+    image = models.ImageField('Imagen', upload_to='experiencia/', blank=True)
 
     class Meta:
         verbose_name = ('Experiencia')
@@ -21,7 +21,8 @@ class Experience(models.Model):
 class Education(models.Model):
     date = models.DateField('Fecha')
     institute = models.CharField('Instituto', max_length=150)
-    certificate = models.CharField('Certificado', max_length=200)
+    title = models.CharField('Titulo', max_length=100)
+    certificate = models.URLField('Certificado', blank=True)
     description = models.TextField('Descripcion')
 
     class Meta:
@@ -29,7 +30,7 @@ class Education(models.Model):
         verbose_name_plural = ('Educaciones')
 
     def __str__(self):
-        return self.institute
+        return self.title
     
 class Skill(models.Model):
     skill_0 = models.CharField('Habilidad 1',max_length =100)

@@ -28,7 +28,14 @@
                                                 <div class="small text-muted">{{experience.company}}</div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-8"><div>{{experience.description}}</div></div>
+                                        
+                                        <div class="col-lg-8"><div>
+                                            <div class="summary-container">
+                                                <p class="summary">{{ experience.description|truncatechars:100 }}</p>
+                                                <p class="full-text" style="display: none;">{{experience.description}}</p>
+                                                <button class="toggle-button" onclick="toggleText(this)">Ver más</button>
+                                            </div>
+                                        </div></div>
                                     </div>
                                 </div>
                             </div>
@@ -49,11 +56,20 @@
                                                     <div class="small fw-bolder">{{education.institute}}</div>
                                                 </div>
                                                 <div class="fst-italic">
+                                                    <div class="small text-muted">{{education.title}}</div>
+                                                </div>
+                                                <div class="fst-italic">
                                                     <div class="small text-muted">{{education.certificate}}</div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-8"><div>{{education.description}}</div></div>
+                                        <div class="col-lg-8"><div>
+                                            <div class="summary-container">
+                                                <p class="summary">{{ education.description|truncatechars:100 }}</p>
+                                                <p class="full-text" style="display: none;">{{ education.description}}</p>
+                                                <button class="toggle-button" onclick="toggleText(this)">Ver más</button>
+                                            </div>
+                                        </div></div>
                                     </div>
                                 </div>
                             </div> 
@@ -101,4 +117,22 @@
             </div>
         </div>
     </main>
+
+    <script>
+        function toggleText(button) {
+            const container = button.parentElement;
+            const summary = container.querySelector('.summary');
+            const fullText = container.querySelector('.full-text');
+    
+            if (summary.style.display === '' || summary.style.display === 'block') {
+                summary.style.display = 'none';
+                fullText.style.display = 'block';
+                button.textContent = 'Ver menos';
+            } else {
+                summary.style.display = 'block';
+                fullText.style.display = 'none';
+                button.textContent = 'Ver más';
+            }
+        }
+    </script>
 {% endblock content %}

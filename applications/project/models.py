@@ -7,6 +7,7 @@ class Project(models.Model):
     project = models.CharField('Proyecto',max_length=100)
     resume = models.TextField('Resumen')
     image = models.ImageField('Imagen', upload_to='project/')
+    url = models.URLField('Url', blank=True)
     
     class Meta:
         verbose_name = ('Proyecto')

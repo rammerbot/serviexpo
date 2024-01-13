@@ -1,7 +1,7 @@
 from .base import *
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['.rammerbot.com']
 CSRF_TRUSTED_ORIGINS=['https://serviexpo.rammerbot.com']

@@ -14,7 +14,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'serviexpo',
         'USER': 'serviexpo_user',
-        'PASSWORD': 'ServiExpo_2024',
+        'PASSWORD': 'serviexpo',
         'HOST': 'localhost',  
         'PORT': '5432',       
     }

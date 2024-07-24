@@ -21,7 +21,9 @@ class Experience(models.Model):
 class Education(models.Model):
     date = models.DateField('Fecha')
     institute = models.CharField('Instituto', max_length=150)
-    certificate = models.CharField('Certificado', max_length=200)
+    title = models.CharField('Titulo', max_length=150, blank=True)
+    url = models.URLField('URL Certificado', blank=True)
+    image = models.ImageField('Imagen', upload_to='project/', blank=True)
     description = models.TextField('Descripcion')
 
     class Meta:

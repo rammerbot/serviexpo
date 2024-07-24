@@ -7,7 +7,7 @@ def resume_view(request):
     experiences = Experience.objects.all()
     educations = Education.objects.all()
     technologies = Technology.objects.all()
-    skills = Skill.objects.all()
+    skills = Skill.objects.all().order_by('id')
 
     context = {
         'experiences':experiences,

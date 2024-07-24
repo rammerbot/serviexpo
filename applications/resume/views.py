@@ -5,9 +5,9 @@ from .models import Experience, Education, Technology, Skill
 # Create your views here.
 def resume_view(request):
     experiences = Experience.objects.all()
-    educations = Education.objects.all()
+    educations = Education.objects.all().order_by('id')
     technologies = Technology.objects.all()
-    skills = Skill.objects.all().order_by('id')
+    skills = Skill.objects.all()
 
     context = {
         'experiences':experiences,

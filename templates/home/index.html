@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% load static %}
-{% block title %}Home{% endblock title %}
+{% block title %}RammerBot | Home{% endblock title %}
 {% block content %}
 
 <header id="header" class="header header-nav-links header-nav-menu header-transparent" data-plugin-options="{'stickyEnabled': true, 'stickyEffect': 'shrink', 'stickyEnableOnBoxed': false, 'stickyEnableOnMobile': true, 'stickyStartAt': 70, 'stickyChangeLogo': false, 'stickyHeaderContainerHeight': 70}">
@@ -8,7 +8,7 @@
         <div class="header-container container h-100">
             <div class="header-row mt-2 h-100">
                 <div class="header-column">
-                    <div class="header-row">
+                    <div class="header-row pt-3">
                         <div class="header-logo pb-4">
                             <a href="{% url "home:home" %}" class="goto-top hvr-float-shadow"><img alt="RammerBot" width="120" height="120" data-sticky-width="82" data-sticky-height="36" data-sticky-top="0" src="{% static 'img/logo/logo-rammerbot.png' %}" data-plugin-lazyload data-plugin-options="{'threshold': 500}" data-original="{% static 'img/logo/logo_rammerbot.png' %}"></a>
                         </div>
@@ -40,7 +40,7 @@
                                             </a>
                                         </li>
 										<li class="dropdown">
-                                            <a class="nav-link dropdown-toggle hvr-float-shadow" href="#">
+                                            <a class="nav-link dropdown-toggle hvr-float-shadow" href="{% url "about:about" %}">
                                                 Sobre Nosotros
                                             </a>
                                         </li>

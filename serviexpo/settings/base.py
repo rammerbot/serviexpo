@@ -27,6 +27,7 @@ LOCAL_APPS = [
     'applications.resume',
     'applications.project',
     'applications.contact',
+    'applications.about',
 ]
 
 THIRD_APPS = [

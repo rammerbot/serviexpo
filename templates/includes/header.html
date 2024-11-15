@@ -23,7 +23,7 @@
         <div class="header-container container h-100">
             <div class="header-row mt-2 h-100">
                 <div class="header-column">
-                    <div class="header-row">
+                    <div class="header-row pt-4">
                         <div class="header-logo pb-4">
                             <a href="{% url "home:home" %}" class="goto-top hvr-float-shadow"><img alt="RammerBot" width="120" height="120" data-sticky-width="82" data-sticky-height="36" data-sticky-top="0" src="{% static 'img/logo/logo-rammerbot.png' %}" data-plugin-lazyload data-plugin-options="{'threshold': 500}" data-original="{% static 'img/logo/logo_rammerbot.png' %}"></a>
                         </div>
@@ -40,7 +40,7 @@
                                 <nav>
                                     <ul class="nav nav-pills" id="mainNav">
                                         <li>
-                                            <a class="nav-link hvr-float-shadow" href="{% url "home:home" %}" data-hash data-hash-offset="120">
+                                            <a class="active nav-link hvr-float-shadow" href="{% url "home:home" %}" data-hash data-hash-offset="120">
                                                 Inicio
                                             </a>    
                                         </li>
@@ -55,7 +55,7 @@
                                             </a>
                                         </li>
                                         <li class="dropdown">
-                                            <a class="nav-link dropdown-toggle hvr-float-shadow" href="#">
+                                            <a class="nav-link dropdown-toggle hvr-float-shadow" href="{% url "about:about" %}">
                                                 Sobre Nosotros
                                             </a>
                                         </li>

@@ -1,53 +1,89 @@
 {% extends "layout.html" %}
 {% load static %}
-{% block title %}RammerBot | Resume{% endblock title %}
+{% block title %}RammerBot | Proyectos{% endblock title %}
 {% block content %}
 {% include "includes/header.html" %}
 
-		<section class="body">
+<section class="body">
+    <div class="inner-wrapper">
+        <section role="main" class="content-body">
+            <header class="page-header">
+                <h2>Proyectos</h2>
+            </header>
+            <!-- start: page -->
+            <section class="content-with-menu content-with-menu-has-toolbar media-gallery">
+                <div class="content-with-menu-container">
+                    <div class="inner-body mg-main">
+                        <div class="row mg-files" data-sort-destination data-sort-id="media-gallery">
+                            {% for project in projects %}
+                            <div class="isotope-item document col-sm-6 col-md-4 col-lg-3">
+                                <div class="thumbnail">
+                                    <div class="thumb-preview">
+                                        <a class="thumb-image">
+                                            <img src="{{ project.image.url }}" class="img-fluid" alt="Project">
+                                        </a>
+                                        <div class="mg-thumb-options">
+                                            <a data-bs-toggle="modal" data-bs-target="#projectModal{{ project.id }}">
+                                            <div class="mg-zoom">
+                                                <!-- Modal trigger -->
+                                                
+                                                    <i class="bx bx-search"></i>
+                                                
+                                            </div>
+                                        </a>
+                                            <div class="mg-toolbar">
+                                                <div class="font-weight-semibold mg-group float-start">
+                                                    <i class="fa-solid fa-globe"></i><a href="{{ project.url }}" target="_blank">Dirección</a>
+                                                </div>
+                                                <div class="font-weight-semibold mg-group float-end">
+                                                    <i class="fab fa-github"></i><a href="{{ project.repository }}" target="_blank">Repositorio</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h5 class="mg-title font-weight-semibold">{{ project.project }}</h5>
+                                    <div class="mg-description">
+                                        <small class="float-start text-muted">{{ project.resume|truncatechars:70 }}</small>
+                                        <small class="float-end text-muted">{{ project.date }}</small>
+                                    </div>
+                                </div>
+                            </div>
 
-			<div class="inner-wrapper">
-
-				<section role="main" class="content-body">
-					<header class="page-header">
-						<h2>Media Gallery</h2>		
-					</header>
-					<!-- start: page -->
-					<section class="content-with-menu content-with-menu-has-toolbar media-gallery">
-						<div class="content-with-menu-container">
-							<div class="inner-body mg-main">
-								<div class="row mg-files" data-sort-destination data-sort-id="media-gallery">
-                                    {% for education in educations %}
-									<div class="isotope-item document col-sm-6 col-md-4 col-lg-3">
-										<div class="thumbnail">
-											<div class="thumb-preview">
-												<a class="thumb-image" href="{{education.image.url}}">
-													<img src="{{education.image.url}}" class="img-fluid" alt="Project">
-												</a>
-												<div class="mg-thumb-options">
-													<div class="mg-zoom"><i class="bx bx-search"></i></div>
-													<div class="mg-toolbar">
-														<div class="mg-group float-end">
-															<a href="{{education.url}}" target="_blank">Link de Certificado</a>
-														</div>
-													</div>
-												</div>
-											</div>
-											<h5 class="mg-title font-weight-semibold">{{education.title}}</h5>
-											<div class="mg-description">
-												<small class="float-start text-muted">{{education.institute}}</small>
-												<small class="float-end text-muted">{{education.date}}</small>
-											</div>
-										</div>
-									</div>
-                                    {% endfor %}
-								</div>
-							</div>
-						</div>
-					</section>
-					<!-- end: page -->
-				</section>
-			</div>
-		</section>
+                            <!-- Modal -->
+                            <div class="modal fade custom-modal" id="projectModal{{ project.id }}" tabindex="-1" aria-labelledby="projectModalLabel{{ project.id }}" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title font-weight-semibold" id="projectModalLabel{{ project.id }}">{{ project.project }}</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="modal-image-container">
+                                                <img src="{{ project.image.url }}" class="img-fluid" alt="Project">
+                                            </div>
+                                            <div class="modal-description mt-3">
+                                                <p>{{ project.resume }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <a href="{{ project.url }}" class="btn btn-primary" target="_blank">
+                                                <i class="fa-solid fa-globe"></i> Ver Proyecto
+                                            </a>
+                                            <a href="{{ project.repository }}" class="btn btn-secondary" target="_blank">
+                                                <i class="fab fa-github"></i> Ver Repositorio
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- end: page -->
+        </section>
+    </div>
+</section>
 
 {% endblock content %}

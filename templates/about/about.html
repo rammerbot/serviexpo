@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block title %}RammerBot | Proyectos{% endblock title %}
+{% block content %}
+{% include "includes/header.html" %}
+
+<section class="body">
+    <div class="inner-wrapper">
+        <section role="main" class="content-body">
+            <header class="page-header">
+                <h2>Sobre Nosotros</h2>
+            </header>
+            <!-- start: page -->
+            <section class="card card-horizontal mb-4">
+                <header class="card-header bg-dark hvr-wobble-to-bottom-right">
+                    <div class="card-header-icon">
+                        <i class="fa-solid fa-people-group"></i>
+                    </div>
+                </header>
+                <div class="card-body p-4">
+                    <h3 class="font-weight-semibold mt-3">Quienes Somos</h3>
+                    <p>{{about.how_we_are | linebreaksbr }}</p>
+                </div>
+            </section>
+            <section class="card card-horizontal mb-4">
+                <header class="card-header bg-dark hvr-wobble-to-bottom-right">
+                    <div class="card-header-icon">
+                        <i class="fa-solid fa-person-circle-exclamation"></i>
+                    </div>
+                </header>
+                <div class="card-body p-4">
+                    <h3 class="font-weight-semibold mt-3">Nuestra Mision</h3>
+                    <p>{{about.our_mision | linebreaksbr }}</p>
+                </div>
+            </section>
+            <section class="card card-horizontal mb-4">
+                <header class="card-header bg-dark hvr-wobble-to-bottom-right">
+                    <div class="card-header-icon">
+                        <i class="fa-solid fa-person-digging"></i>
+                    </div>
+                </header>
+                <div class="card-body p-4">
+                    <h3 class="font-weight-semibold mt-3">Nuestros Proyectos</h3>
+                    <p>{{about.our_projects | linebreaksbr }}</p>
+                </div>
+            </section>
+            <section class="card card-horizontal mb-4">
+                <header class="card-header bg-dark hvr-wobble-to-bottom-right">
+                    <div class="card-header-icon">
+                        <i class="fa-regular fa-star"></i>
+                    </div>
+                </header>
+                <div class="card-body p-4">
+                    <h3 class="font-weight-semibold mt-3">Nuestros Valores</h3>
+                    <p>{{about.our_values | linebreaksbr }}</p>
+                </div>
+            </section>
+            <section class="card card-horizontal mb-4">
+                <header class="card-header bg-dark hvr-wobble-to-bottom-right">
+                    <div class="card-header-icon">
+                        <i class="fa-solid fa-user-check"></i>
+                    </div>
+                </header>
+                <div class="card-body p-4">
+                    <h3 class="font-weight-semibold mt-3">Porque Nosotros</h3>
+                    <p class=>{{about.why_us | linebreaksbr }}</p>
+                </div>
+            </section>
+            <!-- end: page -->
+        </section>
+    </div>
+</section>
+
+{% endblock content %}

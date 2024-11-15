@@ -1,50 +1,53 @@
-
 {% extends "layout.html" %}
 {% load static %}
-{% block title %}RammerBot | Proyectos{% endblock title %}
+{% block title %}RammerBot | Resume{% endblock title %}
 {% block content %}
 {% include "includes/header.html" %}
-    <main class="flex-shrink-0">
-        <!-- Projects Section-->
-        <section class="py-5">
-            <div class="container px-5 mb-5">
-                <div class="text-center mb-5">
-                    <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Proyectos</span></h1>
-                </div>
-                <div class="row gx-5 justify-content-center">
-                    <div class="col-lg-11 col-xl-9 col-xxl-8">
-                        <!-- Project Card 1-->
-                        {% for project in projects %}  
-                            <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
-                                <div class="card-body p-0">
-                                    <div class="d-flex align-items-center">
-                                        <div class="p-5">
-                                            <h2 class="fw-bolder">{{project.project}}</h2>
-                                            <p style="white-space: pre-line;">{{project.resume}}</p>
-                                            <img class="img-fluid" src="{{project.image.url}}" alt="..."  style="width:300px; height:200px"/>
-                                            <div class="small text-muted">
-                                                 <br><a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="{{project.repository}}" targer = '_balck'>Repositorio</a>
-                                                {% if project.url != "" %}
-                                                    <a class="btn btn-outline-dark btn-lg px-5 py-3 fs-6 fw-bolder" href="{{project.url}}" targer = '_balck'>Direccion Web</a>
-                                                {% endif %} 
-                                            </div>
-                                        </div>                                        
-                                    </div>
-                                </div>
-                            </div>
-                        {% endfor %}  
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Call to action section-->
-        <section class="py-5 bg-gradient-primary-to-secondary text-white">
-            <div class="container px-5 my-5">
-                <div class="text-center">
-                    <h2 class="display-4 fw-bolder mb-4">Vamos a construir algo juntos</h2>
-                    <a class="btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder" href="{% url 'contact:contact' %}">Contact me</a>
-                </div>
-            </div>
-        </section>
-    </main>
+
+		<section class="body">
+
+			<div class="inner-wrapper">
+
+				<section role="main" class="content-body">
+					<header class="page-header">
+						<h2>Media Gallery</h2>		
+					</header>
+					<!-- start: page -->
+					<section class="content-with-menu content-with-menu-has-toolbar media-gallery">
+						<div class="content-with-menu-container">
+							<div class="inner-body mg-main">
+								<div class="row mg-files" data-sort-destination data-sort-id="media-gallery">
+                                    {% for education in educations %}
+									<div class="isotope-item document col-sm-6 col-md-4 col-lg-3">
+										<div class="thumbnail">
+											<div class="thumb-preview">
+												<a class="thumb-image" href="{{education.image.url}}">
+													<img src="{{education.image.url}}" class="img-fluid" alt="Project">
+												</a>
+												<div class="mg-thumb-options">
+													<div class="mg-zoom"><i class="bx bx-search"></i></div>
+													<div class="mg-toolbar">
+														<div class="mg-group float-end">
+															<a href="{{education.url}}" target="_blank">Link de Certificado</a>
+														</div>
+													</div>
+												</div>
+											</div>
+											<h5 class="mg-title font-weight-semibold">{{education.title}}</h5>
+											<div class="mg-description">
+												<small class="float-start text-muted">{{education.institute}}</small>
+												<small class="float-end text-muted">{{education.date}}</small>
+											</div>
+										</div>
+									</div>
+                                    {% endfor %}
+								</div>
+							</div>
+						</div>
+					</section>
+					<!-- end: page -->
+				</section>
+			</div>
+		</section>
+
 {% endblock content %}

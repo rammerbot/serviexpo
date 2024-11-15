@@ -3,85 +3,51 @@
 {% block title %}RammerBot | Resume{% endblock title %}
 {% block content %}
 {% include "includes/header.html" %}
-    <main class="flex-shrink-0">
-        <!-- Page Content-->
-        <div class="container px-5 my-5">
-            
-            <div class="row gx-5 justify-content-center">
-                <div class="col-lg-11 col-xl-9 col-xxl-8">
-                    <!-- Education Section-->
-                    <section>
-                        <div class="card bg-white shadow border-0 pb-3 rounded-4 mb-5">
-                            <h1 class="display-5 center fw-bolder mb-0"><span class="text-gradient d-inline">Resume</span></h1>
-                        </div>
-                        <!-- Education Card -->
-                        {% for education in educations %}
-                            <div class="card shadow border-0 rounded-4 mb-5">
-                                <div class="card-body p-5">
-                                    <div class="row align-items-center gx-5">
-                                        <div class="col text-center text-lg-start mb-4 mb-lg-0">
-                                            <div class="bg-light p-4 rounded-4">
-                                                <div class="text-secondary fw-bolder mb-2">{{education.date}}</div>
-                                                <div class="mb-2">
-                                                    <div class="small fw-bolder">{{education.institute}}</div>
-                                                </div>
-                                                <div class="fst-italic">
-                                                    <div class="small text-muted">{{education.certificate}}</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <img class="img-fluid hvr-box-shadow-outset" src="{{education.image.url}}" alt="..."  style="width:300px; height:200px"/>
-                                        <div class="fst-italic">
-                                        <div class="col-lg-8"><div><p class="text-muted">{{education.description}}</p></div></div>
-                                            {%if education.url != '' %}
-                                                <div class="text-muted"><a href="{{education.url}}" target='_blanck'>Link del Certificado</a></div>
-                                            {%endif%}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> 
-                        {% endfor %}
-                    </section>
-                    <!-- Divider-->
-                    <div class="pb-5"></div>
-                    <!-- Skills Section-->
-                    <section>
-                        <!-- Skillset Card-->
-                        <div class="card shadow border-0 rounded-4 mb-5">
-                            <div class="card-body p-5">
-                                <!-- Professional skills list-->
-                                <div class="mb-5">
-                                    <div class="d-flex align-items-center mb-4">
-                                        <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3"><i class="bi bi-tools"></i></div>
-                                        <h3 class="fw-bolder mb-0"><span class="text-gradient d-inline">Professional Skills</span></h3>
-                                    </div>
-                                    {% for skill in skills %}
-                                        <div class="row row-cols-1 row-cols-md-3 mb-4">
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">{{skill.skill_0}}</div></div>
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">{{skill.skill_1}}</div></div>
-                                            <div class="col"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">{{skill.skill_2}}</div></div>
-                                        </div>
+
+		<section class="body">
+
+			<div class="inner-wrapper">
+
+				<section role="main" class="content-body">
+					<header class="page-header">
+						<h2>Media Gallery</h2>		
+					</header>
+					<!-- start: page -->
+					<section class="content-with-menu content-with-menu-has-toolbar media-gallery">
+						<div class="content-with-menu-container">
+							<div class="inner-body mg-main">
+								<div class="row mg-files" data-sort-destination data-sort-id="media-gallery">
+                                    {% for education in educations %}
+									<div class="isotope-item document col-sm-6 col-md-4 col-lg-3">
+										<div class="thumbnail">
+											<div class="thumb-preview">
+												<a class="thumb-image" href="{{education.image.url}}">
+													<img src="{{education.image.url}}" class="img-fluid" alt="Project">
+												</a>
+												<div class="mg-thumb-options">
+													<div class="mg-zoom"><i class="bx bx-search"></i></div>
+													<div class="mg-toolbar">
+														<div class="mg-group float-end">
+															<a href="{{education.url}}" target="_blank">Link de Certificado</a>
+														</div>
+													</div>
+												</div>
+											</div>
+											<h5 class="mg-title font-weight-semibold">{{education.title}}</h5>
+											<div class="mg-description">
+												<small class="float-start text-muted">{{education.institute}}</small>
+												<small class="float-end text-muted">{{education.date}}</small>
+											</div>
+										</div>
+									</div>
                                     {% endfor %}
-                                </div>
-                                <!-- Languages list-->
-                                <div class="mb-0">
-                                    <div class="d-flex align-items-center mb-4">
-                                        <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3"><i class="bi bi-code-slash"></i></div>
-                                        <h3 class="fw-bolder mb-0"><span class="text-gradient d-inline">Tecnologias</span></h3>
-                                    </div>
-                                    {% for technology in technologies %}
-                                        <div class="row row-cols-1 row-cols-md-3 mb-4">
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">{{technology.technology_0}}</div></div>
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">{{technology.technology_1}}</div></div>
-                                            <div class="col"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">{{technology.technology_2}}</div></div>
-                                        </div>
-                                    {% endfor %}
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-            </div>
-        </div>
-    </main>
+								</div>
+							</div>
+						</div>
+					</section>
+					<!-- end: page -->
+				</section>
+			</div>
+		</section>
+
 {% endblock content %}

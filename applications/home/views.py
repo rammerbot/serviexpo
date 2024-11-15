@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
-from .models import Home
+from .models import Home, InfoHome, Reasons
+from applications.resume.models import Skill, Technology
 from applications.contact.models import SocialMedia
 
 # Create your views here.
@@ -8,7 +9,16 @@ from applications.contact.models import SocialMedia
 def home_view(request):
     social_media = SocialMedia.objects.all().first()
     home = Home.objects.all().first()
+    home_info = InfoHome.objects.all().first()
+    skills = Skill.objects.all()
+    technologies = Technology.objects.all()
+    reasons = Reasons.objects.all().order_by('position')
+
     context = {
+        'reasons' : reasons,
+        'home_info': home_info,
+        'skills' : skills,
+        'technologies' : technologies,
         'company': home.company,
         'service_1': home.service_1,
         'service_2': home.service_2,

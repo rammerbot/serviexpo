@@ -2,43 +2,18 @@
 {% load static %}
 {% block title %}RammerBot | Resume{% endblock title %}
 {% block content %}
+{% include "includes/header.html" %}
     <main class="flex-shrink-0">
         <!-- Page Content-->
         <div class="container px-5 my-5">
-            <div class="text-center mb-5">
-                <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Resume</span></h1>
-            </div>
+            
             <div class="row gx-5 justify-content-center">
                 <div class="col-lg-11 col-xl-9 col-xxl-8">
-                    <!-- Experience Section-->
-                     <!-- 
-                    <section>
-                        <div class="d-flex align-items-center justify-content-between mb-4">
-                            <h2 class="text-primary fw-bolder mb-0">Experiencia</h2>
-                        </div>
-                       
-                        {% for experience in experiences%}
-                            <div class="card shadow border-0 rounded-4 mb-5">
-                                <div class="card-body p-5">
-                                    <div class="row align-items-center gx-5">
-                                        <div class="col text-center text-lg-start mb-4 mb-lg-0">
-                                            <div class="bg-light p-4 rounded-4">
-                                                <div class="text-primary fw-bolder mb-2">{{experience.date}}</div>
-                                                <div class="small fw-bolder">{{experience.service}}</div>
-                                                <div class="small fw-bolder">{{experience.position}}</div>
-                                                <div class="small text-muted">{{experience.company}}</div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-8"><div>{{experience.description}}</div></div>
-                                    </div>
-                                </div>
-                            </div>
-                        {% endfor %}   
-                    </section>
-                     -->
                     <!-- Education Section-->
                     <section>
-                        <h2 class="text-secondary fw-bolder mb-4">Preparacion</h2>
+                        <div class="card bg-white shadow border-0 pb-3 rounded-4 mb-5">
+                            <h1 class="display-5 center fw-bolder mb-0"><span class="text-gradient d-inline">Resume</span></h1>
+                        </div>
                         <!-- Education Card -->
                         {% for education in educations %}
                             <div class="card shadow border-0 rounded-4 mb-5">
@@ -55,11 +30,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-8"><div>{{education.description}}</div></div>
-                                        <img class="img-fluid" src="{{education.image.url}}" alt="..."  style="width:300px; height:200px"/>
+                                        <img class="img-fluid hvr-box-shadow-outset" src="{{education.image.url}}" alt="..."  style="width:300px; height:200px"/>
                                         <div class="fst-italic">
+                                        <div class="col-lg-8"><div><p class="text-muted">{{education.description}}</p></div></div>
                                             {%if education.url != '' %}
-                                                <div class="small text-muted"><a href="{{education.url}}" target='_blanck'>Link del Certificado</a></div>
+                                                <div class="text-muted"><a href="{{education.url}}" target='_blanck'>Link del Certificado</a></div>
                                             {%endif%}
                                         </div>
                                     </div>

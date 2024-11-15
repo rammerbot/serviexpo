@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.generic import TemplateView
 
 from .models import Experience, Education, Technology, Skill
 
@@ -17,3 +18,7 @@ def resume_view(request):
     }
 
     return render(request, 'resume/resume.html',context)
+
+class TestView(TemplateView):
+
+    template_name = 'test/test.html'

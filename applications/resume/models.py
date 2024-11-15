@@ -34,25 +34,23 @@ class Education(models.Model):
         return self.institute
     
 class Skill(models.Model):
-    skill_0 = models.CharField('Habilidad 1',max_length =100)
-    skill_1 = models.CharField('Habilidad 2',max_length =100, blank=True)
-    skill_2 = models.CharField('Habilidad 3',max_length =100, blank=True)
+    skill = models.CharField('Habilidad 1',max_length =100)
+    img = models.ImageField('Imagen', upload_to='Habilidades/', blank = True)
 
     class Meta:
         verbose_name = ('Habilidad')
         verbose_name_plural = ('Habilidades')
 
     def __str__(self):
-        return self.skill_0
+        return self.skill
     
 class Technology(models.Model):
-    technology_0 = models.CharField('Tecnologia 1', max_length = 100)
-    technology_1 = models.CharField('Tecnologia 2', max_length = 100, blank=True)
-    technology_2 = models.CharField('Tecnologia 3', max_length = 100, blank=True)
+    technology = models.CharField('Tecnologia 1', max_length = 100)
+    img = models.ImageField('Imagen', upload_to='Tecnologia/', blank = True)
 
     class Meta:
         verbose_name = ('Tecnologia')
         verbose_name_plural = ('Tecnologias')
 
     def __str__(self):
-        return self.technology_0
+        return self.technology

@@ -20,3 +20,24 @@ class Home(models.Model):
 
     def __str__(self):
         return self.company
+    
+class InfoHome(models.Model):
+    first_text = models.TextField('Primer texto')
+    second_text = models.TextField('Segundo texto')
+    about_me = models.TextField('Sobre mi')
+    project_number = models.IntegerField('Cantidad de proyectos')
+    experience_number = models.IntegerField('Cantidad de Experience')
+
+    class Meta:
+        verbose_name = ('Pagina principal')
+        verbose_name_plural = ('Paginas principales')
+
+class Reasons(models.Model):
+    reason = models.CharField('Razon', max_length=120)
+    description = models.TextField('Descripcion')
+    img = models.ImageField('Imagen', upload_to='razones/')
+    position = models.IntegerField('Posision', default=0)
+    
+
+    def __str__(self):
+        return self.reason

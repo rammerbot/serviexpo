@@ -4,7 +4,7 @@ from .models import Project
 
 def project_view(request):
 
-    projects = Project.objects.all()
+    projects = Project.objects.all().order_by('-id')
     context = {
         'projects': projects
     }

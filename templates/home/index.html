@@ -3,59 +3,7 @@
 {% block title %}RammerBot | Home{% endblock title %}
 {% block content %}
 
-<header id="header" class="header header-nav-links header-nav-menu header-transparent" data-plugin-options="{'stickyEnabled': true, 'stickyEffect': 'shrink', 'stickyEnableOnBoxed': false, 'stickyEnableOnMobile': true, 'stickyStartAt': 70, 'stickyChangeLogo': false, 'stickyHeaderContainerHeight': 70}">
-    <div class="header-body border-top-0 bg-dark box-shadow-none  ">
-        <div class="header-container container h-100">
-            <div class="header-row mt-2 h-100">
-                <div class="header-column">
-                    <div class="header-row pt-3">
-                        <div class="header-logo pb-4">
-                            <a href="{% url "home:home" %}" class="goto-top hvr-float-shadow"><img alt="RammerBot" width="120" height="120" data-sticky-width="82" data-sticky-height="36" data-sticky-top="0" src="{% static 'img/logo/logo-rammerbot.png' %}" data-plugin-lazyload data-plugin-options="{'threshold': 500}" data-original="{% static 'img/logo/logo_rammerbot.png' %}"></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="header-column justify-content-end">
-                    <div class="header-row">
-                        <button class="btn header-btn-collapse-nav d-lg-none order-3 mt-0 ms-3 me-0" data-bs-toggle="collapse" data-bs-target=".header-nav">
-                            <i class="fas fa-bars"></i>
-                        </button>
-                        <!-- start: header nav menu -->
-                        <div class="header-nav header-nav-links header-nav-light-text header-nav-dropdowns-dark collapse">
-                            <div class="header-nav-main header-nav-main-mobile-dark header-nav-main-effect-1 header-nav-main-sub-effect-1">
-                                <nav>
-                                    <ul class="nav nav-pills" id="mainNav">
-                                        <li>
-                                            <a class="nav-link hvr-float-shadow" href="{% url "home:home" %}" data-hash data-hash-offset="120">
-                                                Inicio
-                                            </a>    
-                                        </li>
-                                        <li class="dropdown">
-                                            <a class="nav-link dropdown-toggle hvr-float-shadow" href="{% url "resume:resume" %}">
-                                                Resumen
-                                            </a>
-                                        </li>
-                                        <li class="dropdown">
-                                            <a class="nav-link dropdown-toggle hvr-float-shadow" href="{% url "project:project" %}">
-                                                Proyectos
-                                            </a>
-                                        </li>
-										<li class="dropdown">
-                                            <a class="nav-link dropdown-toggle hvr-float-shadow" href="{% url "about:about" %}">
-                                                Sobre Nosotros
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-                        <!-- end: header nav menu -->
-                        <a href="{% url "contact:contact" %} " class="hvr-float-shadow btn btn-gradient btn-modern btn-rounded text-3 ms-4 d-none d-sm-block">!Contactame Ahora!</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
+
 	
 		<div class="loading-overlay">
 			<div class="bounce-loader">
